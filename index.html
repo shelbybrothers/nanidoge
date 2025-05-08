@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 
+    - primary meta tags
+  -->
+  <title>The Red Doge : Nanidoge </title>
+  <meta name="title" content="VUN the Home of Tickets">
+  <meta name="description" content="Your Collectibles Home">
+
+  <script src="https://cdn.jsdelivr.net/npm/@solana/web3.js@latest/lib/index.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@solana/wallet-adapter-base@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@solana/wallet-adapter-wallets@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@solana/wallet-adapter-phantom@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@solana/wallet-adapter-react-ui@latest"></script>
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./favicon.ico" type="image/svg+xml">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- 
+    - preload images
+  -->
+  <link rel="preload" as="image" href="./assets/images/hero-banner.png">
+  <link rel="preload" as="image" href="./assets/images/pattern-2.svg">
+  <link rel="preload" as="image" href="./assets/images/pattern-3.svg">
+
+</head>
+
+<body id="top">
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <a href="#" class="logo">
+        <img src="./assets/images/zz_nanidogelogo.png" width="150" height="47" alt="Wren logo">
+      </a>
+
+      <nav class="navbar" data-navbar>
+
+        <div class="navbar-top">
+          <a href="#" class="logo">
+            <img src="./assets/images/00_logo2.png" width="119" height="37" alt="Wren logo">
+          </a>
+
+          <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+          </button>
+        </div>
+
+        <ul class="navbar-list">
+
+          <li>
+            <a href="https://coin.nani.ooo" class="navbar-link hover-1" data-nav-toggler>Buy $NANIDOGE</a>
+          </li>
+
+         
+
+          <li>
+            <a href="https://x.com/nanidogeERC" class="navbar-link hover-1" data-nav-toggler>Twitter</a>
+          </li>
+
+           <li>
+            <a href="https://t.me/nanidogeERC" class="navbar-link hover-1" data-nav-toggler>Telegram</a>
+          </li>
+
+          <li>
+            <a href="https://" class="navbar-link hover-1" data-nav-toggler>Litepaper</a>
+          </li>
+
+          
+        </ul>
+
+        <div class="navbar-bottom">
+
+          <div class="profile-card">
+            <img src="./assets/images/author-1.png" width="48" height="48" alt="Steven" class="profile-banner">
+
+            <div>
+              <p class="card-title">Hello Fams !</p>
+
+              <p class="card-subtitle">
+                You have new messages
+              </p>
+            </div>
+          </div>
+
+          <ul class="link-list">
+
+            <li>
+              <a href="#" class="navbar-bottom-link hover-1">Profile</a>
+            </li>
+
+            <li>
+              <a href="#" class="navbar-bottom-link hover-1">Articles Saved</a>
+            </li>
+
+            <li>
+              <a href="#" class="navbar-bottom-link hover-1">Add New Post</a>
+            </li>
+
+            <li>
+              <a href="#" class="navbar-bottom-link hover-1">My Likes</a>
+            </li>
+
+            <li>
+              <a href="#" class="navbar-bottom-link hover-1">Account Setting</a>
+            </li>
+
+            <li>
+              <a href="#" class="navbar-bottom-link hover-1">Sign Out</a>
+            </li>
+
+          </ul>
+
+        </div>
+
+        <p class="copyright-text">
+          Copyright 2025 © NANIDOGE Teams.
+          Developed by NANIDOGE Foundation.
+        </p>
+
+      </nav>
+
+     <a id="connect-wallet-btn" class="btn btn-primary" style="cursor:pointer;">Connect Wallet</a>
+        
+ <div id="wallet-popup" style="
+  display: none;
+  position: absolute;
+  background: #181A20;
+  color: white;
+  padding: 10px;
+  border: 2px solid #f0b90b;
+  border-radius: 10px;
+  min-width: 220px;
+  z-index: 9999;
+  font-size: 14px;
+">
+  <p id="wallet-address" style="margin: 0; word-break: break-word;"></p>
+  <p id="wallet-balance" style="margin: 4px 0;"></p>
+  <button id="disconnect-btn" style="
+    background-color: #f0b90b;
+    border: none;
+    color: #000;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+  ">Disconnect</button>
+</div>
+
+
+
+      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+        <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+      </button>
+
+    </div>
+  </header>
+
+
+
+
+
+  <main>
+    <article>
+
+      <!-- 
+        - #HERO
+      -->
+
+      <section class="hero" id="home" aria-label="home">
+        <div class="container">
+
+          <div class="hero-content">
+
+            <p class="hero-subtitle">Hi ERC-Fams !</p>
+
+            <h1 class="headline headline-1 section-title">
+            Ticket-based ERC6909 <span class="span">NANIDOGE</span>
+            </h1>
+
+            <p class="hero-text">
+              This isn’t your average NFT project. Red Doge is pioneering the next evolution of event access and digital collectibles using the revolutionary ERC-6909 standard a cutting-edge, gas-efficient protocol purpose-built for ticketing, tiered access, and mass utility.  
+            </p>
+            <p class="hero-text">
+              ID: 712304650175191395319755434223608684696232385053
+            </p>
+            <div class="input-wrapper">
+
+              <input id="address-input" type="text" name="wallet_address" placeholder="Paste your ETH Address" required class="input-field" autocomplete="off">
+
+<button id="submit-address-btn" class="btn btn-primary">
+  <span class="span">Start</span>
+  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+</button>
+
+
+            </div>
+
+          </div>
+
+          <div class="hero-banner">
+
+            <img src="./assets/images/zz_nanidoge_image.png" width="327" height="490" alt="Wren Clark" class="w-100">
+
+            <img src="./assets/images/pattern-2.svg" width="27" height="26" alt="shape" class="shape shape-1">
+
+            <img src="./assets/images/pattern-3.svg" width="27" height="26" alt="shape" class="shape shape-2">
+
+          </div>
+
+          <img src="./assets/images/shadow-1.svg" width="500" height="800" alt="" class="hero-bg hero-bg-1">
+
+          <img src="./assets/images/shadow-2.svg" width="500" height="500" alt="" class="hero-bg hero-bg-2">
+
+        </div>
+      </section>
+
+      <!-- 
+        - #TOPICS
+      -->
+
+      <section class="topics" id="topics" aria-labelledby="topic-label">
+        <div class="container">
+
+          <div class="card topic-card">
+
+            <div class="card-content">
+
+              <h2 class="headline headline-2 section-title card-title" id="topic-label">
+                Trending
+              </h2>
+
+              <p class="card-text">
+                Let's see what Tickets are trending today!
+              </p>
+
+              <div class="btn-group">
+                <button class="btn-icon" aria-label="previous" data-slider-prev>
+                  <ion-icon name="arrow-back" aria-hidden="true"></ion-icon>
+                </button>
+
+                <button class="btn-icon" aria-label="next" data-slider-next>
+                  <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+                </button>
+              </div>
+
+            </div>
+
+            <div class="slider" data-slider>
+              <ul class="slider-list" data-slider-container>
+
+                <li class="slider-item">
+                  <a href="#" class="slider-card">
+
+                    <figure class="slider-banner img-holder" style="--width: 507; --height: 618;">
+                      <img src="./assets/images/zz_vid1.webp" width="507" height="618" loading="lazy" alt="Sport"
+                        class="img-cover">
+                    </figure>
+
+                    <div class="slider-content">
+                      <span class="slider-title">NaniBulk !?</span>
+
+                      <p class="slider-subtitle">Query 0.02 ETH</p>
+                    </div>
+
+                  </a>
+                </li>
+
+                <li class="slider-item">
+                  <a href="#" class="slider-card">
+
+                    <figure class="slider-banner img-holder" style="--width: 507; --height: 618;">
+                      <img src="./assets/images/zz_vid2.webp" width="507" height="618" loading="lazy" alt="Travel"
+                        class="img-cover">
+                    </figure>
+
+                    <div class="slider-content">
+                      <span class="slider-title">Hit the Bone !</span>
+
+                      <p class="slider-subtitle">Query 0.5 ETH</p>
+                    </div>
+
+                  </a>
+                </li>
+
+                <li class="slider-item">
+                  <a href="#" class="slider-card">
+
+                    <figure class="slider-banner img-holder" style="--width: 507; --height: 618;">
+                      <img src="./assets/images/zz_vid3.webp" width="507" height="618" loading="lazy" alt="Design"
+                        class="img-cover">
+                    </figure>
+
+                    <div class="slider-content">
+                      <span class="slider-title">Nani Brothers</span>
+
+                      <p class="slider-subtitle">Query 1.5 ETH</p>
+                    </div>
+
+                  </a>
+                </li>
+
+                
+
+                
+
+              </ul>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #FEATURED POST
+      -->
+
+      <section class="section feature" aria-label="feature" id="featured">
+        <div class="container">
+
+          <h2 class="headline headline-2 section-title">
+            <span class="span">Editor's picked</span>
+          </h2>
+
+          <p class="section-text">
+            Featured and highly rated Collections by Community ! 
+          </p>
+
+          <ul class="feature-list">
+
+            <li>
+              <div class="card feature-card">
+
+                <figure class="card-banner img-holder" style="--width: 1602; --height: 903;">
+                  <img src="./assets/images/zz_vid4.webp" width="1602" height="903" loading="lazy"
+                    alt="Self-observation is the first step of inner unfolding" class="img-cover">
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="card-wrapper">
+                    <div class="card-tag">
+                      <a href="#" class="span hover-2">#News</a>
+
+                      <a href="#" class="span hover-2">#Community</a>
+                    </div>
+
+                    <div class="wrapper">
+                      <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+
+                      <span class="span">5.25K Items</span>
+                    </div>
+                  </div>
+
+                  <h3 class="headline headline-3">
+                    <a href="#" class="card-title hover-2">
+                      A Journey of Nani !
+                    </a>
+                  </h3>
+
+                  <div class="card-wrapper">
+
+                    <div class="profile-card">
+                      <img src="./assets/images/zz_2.png" width="48" height="48" loading="lazy" alt="Joseph"
+                        class="profile-banner">
+
+                      <div>
+                        <p class="card-title">Bulkan.eth</p>
+
+                        <p class="card-subtitle">Vol. ???</p>
+                      </div>
+                    </div>
+
+                    <a href="#" class="card-btn">Query 7.9 ETH</a>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="card feature-card">
+
+                <figure class="card-banner img-holder" style="--width: 1602; --height: 903;">
+                  <img src="./assets/images/zz_vid5.webp" width="1602" height="903" loading="lazy"
+                    alt="Self-observation is the first step of inner unfolding" class="img-cover">
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="card-wrapper">
+                    <div class="card-tag">
+                      <a href="#" class="span hover-2">#Casino</a>
+
+                      <a href="#" class="span hover-2">#Pop</a>
+                    </div>
+
+                    <div class="wrapper">
+                      <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+
+                      <span class="span">2.37K Items</span>
+                    </div>
+                  </div>
+
+                  <h3 class="headline headline-3">
+                    <a href="#" class="card-title hover-2">
+                      Doge x Human, where . .
+                    </a>
+                  </h3>
+
+                  <div class="card-wrapper">
+
+                    <div class="profile-card">
+                      <img src="./assets/images/zz_1.png" width="48" height="48" loading="lazy" alt="Joseph"
+                        class="profile-banner">
+
+                      <div>
+                        <p class="card-title">Doge.Casino</p>
+
+                        <p class="card-subtitle">Vol. ???</p>
+                      </div>
+                    </div>
+
+                    <a href="#" class="card-btn">Query 0.5 ETH</a>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="card feature-card">
+
+                <figure class="card-banner img-holder" style="--width: 1602; --height: 903;">
+                  <img src="./assets/images/zz_vid6.webp" width="1602" height="903" loading="lazy"
+                    alt="Self-observation is the first step of inner unfolding" class="img-cover">
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="card-wrapper">
+                    <div class="card-tag">
+                      <a href="#" class="span hover-2">#Pop</a>
+
+                      <a href="#" class="span hover-2">#Empty</a>
+                    </div>
+
+                    <div class="wrapper">
+                      <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+
+                      <span class="span">1.11K Items</span>
+                    </div>
+                  </div>
+
+                  <h3 class="headline headline-3">
+                    <a href="#" class="card-title hover-2">
+                      Weirdest Richie Nani
+                    </a>
+                  </h3>
+
+                  <div class="card-wrapper">
+
+                    <div class="profile-card">
+                      <img src="./assets/images/author3.jpg" width="48" height="48" loading="lazy" alt="Joseph"
+                        class="profile-banner">
+
+                      <div>
+                        <p class="card-title">Empty.Dusks</p>
+
+                        <p class="card-subtitle">Vol. ???</p>
+                      </div>
+                    </div>
+
+                    <a href="#" class="card-btn">Query 6.5 ETH</a>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="card feature-card">
+
+                <figure class="card-banner img-holder" style="--width: 1602; --height: 903;">
+                  <img src="./assets/images/zz_vid7.webp" width="1602" height="903" loading="lazy"
+                    alt="Self-observation is the first step of inner unfolding" class="img-cover">
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="card-wrapper">
+                    <div class="card-tag">
+                      <a href="#" class="span hover-2">#S</a>
+
+                      <a href="#" class="span hover-2">#Tech</a>
+                    </div>
+
+                    <div class="wrapper">
+                      <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+
+                      <span class="span">444 Items</span>
+                    </div>
+                  </div>
+
+                  <h3 class="headline headline-3">
+                    <a href="#" class="card-title hover-2">
+                      During his experiments..
+                    </a>
+                  </h3>
+
+                  <div class="card-wrapper">
+
+                    <div class="profile-card">
+                      <img src="./assets/images/author4.gif" width="48" height="48" loading="lazy" alt="Joseph"
+                        class="profile-banner">
+
+                      <div>
+                        <p class="card-title">Smorph</p>
+
+                        <p class="card-subtitle">Vol. ???</p>
+                      </div>
+                    </div>
+
+                    <a href="#" class="card-btn">Query 1.9 ETH</a>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="card feature-card">
+
+                <figure class="card-banner img-holder" style="--width: 1602; --height: 903;">
+                  <img src="./assets/images/zz_vid8.webp" width="1602" height="903" loading="lazy"
+                    alt="Self-observation is the first step of inner unfolding" class="img-cover">
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="card-wrapper">
+                    <div class="card-tag">
+                      <a href="#" class="span hover-2">#Trading</a>
+
+                      <a href="#" class="span hover-2">#Finance</a>
+                    </div>
+
+                    <div class="wrapper">
+                      <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+
+                      <span class="span">888 Items</span>
+                    </div>
+                  </div>
+
+                  <h3 class="headline headline-3">
+                    <a href="#" class="card-title hover-2">
+                      Introducing Nani Pools..
+                    </a>
+                  </h3>
+
+                  <div class="card-wrapper">
+
+                    <div class="profile-card">
+                      <img src="./assets/images/author5.jpg" width="48" height="48" loading="lazy" alt="Joseph"
+                        class="profile-banner">
+
+                      <div>
+                        <p class="card-title">Impulse.eth</p>
+
+                        <p class="card-subtitle">Vol. ???</p>
+                      </div>
+                    </div>
+
+                    <a href="#" class="card-btn">Query 2.9 ETH</a>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </li>
+
+          </ul>
+
+          <a href="#" class="btn btn-secondary">
+            <span class="span">Show More Posts</span>
+
+            <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+          </a>
+
+        </div>
+
+        <img src="./assets/images/shadow-3.svg" width="500" height="1500" loading="lazy" alt="" class="feature-bg">
+
+      </section>
+
+
+
+
+
+      <!-- 
+        - #POPULAR TAGS
+      -->
+
+      
+
+   
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer>
+    <div class="container">
+
+      <div class="card footer">
+
+        <div class="section footer-top">
+
+          <div class="footer-brand">
+
+            <a href="#" class="logo">
+              <img src="./assets/images/zz_nanidogelogo.png" width="119" height="37" loading="lazy" alt="Wren logo">
+            </a>
+
+            <p class="footer-text">
+            Builded by a member of Binance 2024 Hackaton on Hongkong. Focusing on EIP1155 enchancements and 712-Scalers.  
+            </p>
+
+            <p class="footer-list-title"></p>
+
+            <address class="footer-text address">
+              CA
+            </address>
+
+          </div>
+
+          <div class="footer-list">
+
+            <p class="footer-list-title">Collectibles Categories</p>
+
+            <ul>
+
+              <li>
+                <a href="#" class="footer-link hover-2">Dogefoot</a>
+              </li>
+
+              <li>
+                <a href="#" class="footer-link hover-2">Dogfood</a>
+              </li>
+
+              <li>
+                <a href="#" class="footer-link hover-2">Dogira</a>
+              </li>
+
+              <li>
+                <a href="#" class="footer-link hover-2">Doge Hulk</a>
+              </li>
+
+              <li>
+                <a href="#" class="footer-link hover-2">Dogehuman</a>
+              </li>
+
+              <li>
+                <a href="#" class="footer-link hover-2">DogeDoge</a>
+              </li>
+
+              <li>
+                <a href="#" class="footer-link hover-2">Dogehuman</a>
+              </li>
+
+              <li>
+                <a href="#" class="footer-link hover-2">Dodoge</a>
+              </li>
+
+
+
+            </ul>
+
+          </div>
+
+          <div class="footer-list">
+
+            <p class="footer-list-title">Newsletter</p>
+
+            <p class="footer-text">
+              Get information on developments from NANIDOGE Team and other events..
+            </p>
+
+            <div class="input-wrapper">
+              <input type="text" name="name" placeholder="Your name" required class="input-field" autocomplete="off">
+
+              <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
+            </div>
+
+            <div class="input-wrapper">
+              <input type="email" name="email_address" placeholder="Emaill address" required class="input-field"
+                autocomplete="off">
+
+              <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
+            </div>
+
+            <a href="#" class="btn btn-primary">
+              <span class="span">Subscribe</span>
+
+              <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+            </a>
+
+          </div>
+
+        </div>
+
+        <div class="footer-bottom">
+
+          <p class="copyright">
+            &copy; 2025. Developed by NANIDOGE Teams<a href="#" class="copyright-link"></a>
+          </p>
+
+          <ul class="social-list">
+
+            <li>
+              <a href="https://twitter.com/nanidogeERC" class="social-link">
+                <ion-icon name="logo-twitter"></ion-icon>
+
+                <span class="span">Twitter</span>
+              </a>
+            </li>
+
+            
+
+            <li>
+              <a href="https://t.me/nanidogeERC" class="social-link">
+                <ion-icon name="logo-tumblr"></ion-icon>
+
+                <span class="span">Telegram</span>
+              </a>
+            </li>
+
+            
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+  </footer>
+
+
+
+
+
+  <!-- 
+    - #BACK TO TOP
+  -->
+
+  <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
+    <ion-icon name="arrow-up-outline" aria-hidden="true"></ion-icon>
+  </a>
+
+
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script>
+    const connectBtn = document.getElementById("connect-wallet-btn");
+    const popup = document.getElementById("wallet-popup");
+    const addressEl = document.getElementById("wallet-address");
+    const balanceEl = document.getElementById("wallet-balance");
+    const disconnectBtn = document.getElementById("disconnect-btn");
+  
+    let userAddress = null;
+  
+    // Helper to get ETH balance
+    async function getEthBalance(address) {
+      const balanceWei = await window.ethereum.request({
+        method: "eth_getBalance",
+        params: [address, "latest"],
+      });
+      return parseFloat(parseInt(balanceWei, 16) / 1e18).toFixed(4);
+    }
+  
+    async function connectWallet() {
+      if (typeof window.ethereum === 'undefined') {
+        alert("MetaMask not found. Please install it.");
+        return;
+      }
+  
+      try {
+        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        userAddress = accounts[0];
+        const balance = await getEthBalance(userAddress);
+        connectBtn.innerText = `${balance} ETH`;
+        addressEl.textContent = `Address: ${userAddress}`;
+        balanceEl.textContent = `Balance: ${balance} ETH`;
+      } catch (err) {
+        console.error("Connection failed", err);
+      }
+    }
+  
+    function disconnectWallet() {
+      userAddress = null;
+      connectBtn.innerText = "Connect Wallet";
+      popup.style.display = "none";
+    }
+  
+    connectBtn.addEventListener("click", connectWallet);
+    disconnectBtn.addEventListener("click", disconnectWallet);
+  
+    // Show popup on hover
+    connectBtn.addEventListener("mouseenter", () => {
+      if (userAddress) {
+        popup.style.display = "block";
+        const rect = connectBtn.getBoundingClientRect();
+        popup.style.top = `${rect.bottom + window.scrollY + 5}px`;
+        popup.style.left = `${rect.left + window.scrollX}px`;
+      }
+    });
+  
+    connectBtn.addEventListener("mouseleave", () => {
+      setTimeout(() => {
+        if (!popup.matches(':hover')) {
+          popup.style.display = "none";
+        }
+      }, 200);
+    });
+  
+    popup.addEventListener("mouseleave", () => {
+      popup.style.display = "none";
+    });
+  </script>
+  
+  <script>
+    const submitBtn = document.getElementById("submit-address-btn");
+    const addressInput = document.getElementById("address-input");
+  
+    submitBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      const address = addressInput.value.trim();
+  
+      // Basic Ethereum address validation
+      const isValidEth = /^0x[a-fA-F0-9]{40}$/.test(address);
+  
+      if (!isValidEth) {
+        alert("⚠️ Please enter a valid Ethereum address.");
+        return;
+      }
+  
+      // Simulate submission (frontend only)
+      alert("✅ Your wallet submitted to the ERC6909 ticket list");
+  
+      // Optionally clear input
+      addressInput.value = "";
+    });
+  </script>
+  
+
+</body>
+
+</html>
